@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   images:{
     remotePatterns: [new URL('https://images.microcms-assets.io/assets/**')]
   },
+  compiler:{
+    removeConsole: process.env.NODE_ENV === 'production',
+  }
 };
 
 export default nextConfig;
