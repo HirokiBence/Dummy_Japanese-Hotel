@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import HeaderNav from "./HeaderNav";
-import Modal from "./Modal";
+import HeaderNav from "@/components/HeaderNav";
 
 export default function Header(){
   return(
@@ -12,7 +11,6 @@ export default function Header(){
           <Image className="header__logo-sub" loading="eager" src="/global/sub-header-logo.png" width={200} height={40} alt="石井花壇"/>
         </Link>
         <HeaderNav/>
-        <Modal/>
       </div>
     </header>
   );
