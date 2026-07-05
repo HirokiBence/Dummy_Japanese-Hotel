@@ -543,6 +543,13 @@ body {
   line-height: 1;
 }
 
+body.is-fixed{
+  position: fixed;
+  top: calc(var(--offsetTop)* -1);
+  left: 0;
+  right: 0;
+}
+
 a {
   text-decoration: none;
 }

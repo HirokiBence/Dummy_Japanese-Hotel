@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import Modal from "@/components/Modal";
 
 export default function Headernav() {
@@ -18,7 +18,6 @@ export default function Headernav() {
     });
   },[]);
 
-  // 一番最初だけちらつく
   useEffect(() => {
     setTimeout(() => {
       setIsAnimating(false);
@@ -28,11 +27,26 @@ export default function Headernav() {
     }, DURATION);
   }, [animationType]);
 
+  useEffect(() => {
+    const currentOffset = pageYOffset
+    if(!(isGlobalNav || isModal)) return;
+      document.body.style.setProperty('--offsetTop', `${currentOffset}px`);
+      document.body.classList.add('is-fixed');
+    
+      return () => {
+        document.body.classList.remove('is-fixed');
+        window.scrollTo(0, currentOffset);
+      };
+    
+  }, [isModal, isGlobalNav]);
+
   function openModal(){
     setIsGlobalNav(false);
     setIsModal(true);
     setIsAnimating(true);
     setAnimationType("fade-in");
+
+    // body
   }
   
   function closeModal(){
