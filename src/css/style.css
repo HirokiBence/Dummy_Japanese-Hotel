@@ -776,17 +776,17 @@ address {
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
   background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  transition: .3s;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 992px) {
@@ -2484,8 +2484,9 @@ address {
   margin-inline: auto;
 }
 
-.transparent {
+.header.transparent {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .transparent .header__logo-main {
