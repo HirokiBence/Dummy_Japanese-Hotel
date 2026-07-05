@@ -29,9 +29,9 @@ React.useEffect(() => {
     function invertColor(entries: IntersectionObserverEntry[]){
       entries.forEach(entry => {
         if(entry.isIntersecting){
-          header?.classList.remove('inversion');
+          header?.classList.add('transparent');
         }else{
-          header?.classList.add('inversion');
+          header?.classList.remove('transparent');
         }
       });
     };
