@@ -1316,7 +1316,7 @@ address {
 
 .media--reverse .media__image-wrapper {
   margin-right: 0;
-  margin-left: 174px;
+  /* margin-left: 174px; */
 }
 
 @media (max-width: 1280px) {
@@ -1342,6 +1342,7 @@ address {
   margin-right: auto;
   margin-left: auto;
   margin-top: 5rem;
+  justify-content: space-evenly;
 }
 
 @media (max-width: 992px) {
@@ -1353,6 +1354,8 @@ address {
   display: flex;
   flex-direction: column;
   row-gap: 122px;
+  max-width: 1280px;
+  margin-inline: auto;
 }
 
 @media (max-width: 1280px) {

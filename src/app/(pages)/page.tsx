@@ -1,47 +1,11 @@
 import Image from 'next/image';
 import Link from "next/link";
-import { Client } from '@/libs/microcms';
 import Providers from "@/provider/proivders";
 
-import TabMenu from '@/components/TabMenu';
-import TabContent from '@/components/TabContent';
+import TabList from '@/components/TabList';
+import PostList from '@/components/PostList';
 
-// ニュース記事の型定義
-type Post = {
-  id: string;
-  createdAt: string;
-  title: string;
-  thumbnail: {
-    url: string;
-    width: number;
-    height: number;
-  };
-  category: {
-    name: string,
-  },
-};
-
-// microCMSからnews記事を取得
-async function GetPosts() {
-  try{
-    const data = await Client.get({
-      endpoint: "news",
-      queries:  {
-        limit: 6,
-        orders: 'createdAt',
-      },
-    });
-    return data.contents;
-  }catch(err){
-    console.log(err);
-  }
-}
-
-export default async function Page(){
-  const posts: Post[] = await GetPosts();
-  const hoursNews = posts?.filter(post => post.category.name === "営業情報");
-  const otherNews = posts?.filter(post => post.category.name === "その他");
-
+export default function Page(){
   return(
     <>
       <main className="main">
@@ -142,21 +106,10 @@ export default async function Page(){
             </div>
           </section>
 
-          <section className="news">
-            <div className="news__inner">
-              <div className="news__title section-top" data-aos="fade-in">
-                <Image className="section-top__image" src="/global/logo02.png" width={40} height={40} alt=""/>
-                <h3 className="section-top__title">お知らせ</h3>
-              </div>
-              <div></div>
-              <TabMenu>
-                <>
-                  <TabContent key="営業情報" contents={hoursNews}/>
-                  <TabContent key="その他" contents={otherNews}/>
-                </>
-              </TabMenu>
-            </div>
-          </section>
+          <TabList panels={{
+            opentime: <PostList id="ylnb8pg7s"/>,
+            others: <PostList id="sc4my8bp0q"/>
+          }}/>
 
           <section className="access">
             <div className="access__inner">
