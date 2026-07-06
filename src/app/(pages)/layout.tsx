@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
+import "@/css/style.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import "@/css/style.css";
+import Providers from "@/provider/proivders";
 
 export const metadata: Metadata = {
   title: "石井花壇 | 温海温泉旅館公式サイト",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }){
         {children}
         <Footer/>
       </body>
+      <Providers/>
     </html>
   );
 };

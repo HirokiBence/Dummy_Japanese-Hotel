@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import Link from "next/link";
-import Providers from "@/provider/proivders";
-
 import TabList from '@/components/TabList';
 import PostList from '@/components/PostList';
 
@@ -145,7 +143,6 @@ export default function Page(){
           </section>
         </article>
       </main>
-      <Providers/>
     </>
   );
 };
